@@ -105,7 +105,7 @@ def science(col, preds, filecsv_from, filecsv_to, colim, df_sum):
     ##########
 
 
-    models.append(('MB', CatBoostRegressor(task_type='CPU', loss_function= 'RMSE', random_seed=1,l2_leaf_reg=0.2,learning_rate=0.1,depth=8, thread_count=-1, iterations=12000)))
+    models.append(('MB', CatBoostRegressor(task_type='CPU', loss_function= 'RMSE', random_seed=1,l2_leaf_reg=0.2,learning_rate=0.1,depth=8, thread_count=-1, iterations=10000)))
 
 
     names = []
@@ -150,7 +150,7 @@ def science(col, preds, filecsv_from, filecsv_to, colim, df_sum):
     pool_test_solution = Pool(df_test,
                               cat_features=['PATIENT_SEX', 'MKB_CODE', 'ADRES'])
 
-    model_solution = CatBoostRegressor(task_type='CPU', loss_function= 'RMSE', random_seed=1,l2_leaf_reg=0.2,learning_rate=0.1,depth=8, thread_count=-1, iterations=12000)
+    model_solution = CatBoostRegressor(task_type='CPU', loss_function= 'RMSE', random_seed=1,l2_leaf_reg=0.2,learning_rate=0.1,depth=8, thread_count=-1, iterations=10000)
     model_solution.fit(pool_train_solution)
 
     # Получение ответов
